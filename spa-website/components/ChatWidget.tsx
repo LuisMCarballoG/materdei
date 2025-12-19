@@ -77,20 +77,38 @@ export default function ChatWidget() {
   const handleConfirm = async () => {
     setIsSubmitting(true);
     
-    // Simulate API call (in production, this would go to Netlify Functions)
-    await new Promise(resolve => setTimeout(resolve, 1500));
-    
-    // Store locally for now (in production, send to Netlify Blobs/Forms)
-    const appointments = JSON.parse(localStorage.getItem('spa_appointments') || '[]');
-    appointments.push({
-      ...appointment,
-      status: 'PENDIENTE',
-      createdAt: new Date().toISOString(),
-    });
-    localStorage.setItem('spa_appointments', JSON.stringify(appointments));
-    
-    setIsSubmitting(false);
-    setStep('success');
+    try {
+      // Call Netlify Function to save appointment
+      const response = await fetch('/api/submit-appointment', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(appointment),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Error al agendar cita');
+      }
+
+      console.log('Appointment created:', data);
+      setStep('success');
+    } catch (error) {
+      console.error('Error submitting appointment:', error);
+      // Fallback to localStorage if API fails
+      const appointments = JSON.parse(localStorage.getItem('spa_appointments') || '[]');
+      appointments.push({
+        ...appointment,
+        status: 'PENDIENTE',
+        createdAt: new Date().toISOString(),
+      });
+      localStorage.setItem('spa_appointments', JSON.stringify(appointments));
+      setStep('success');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const resetChat = () => {
