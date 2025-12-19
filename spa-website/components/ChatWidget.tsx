@@ -11,13 +11,13 @@ interface AppointmentData {
 }
 
 const services = [
-  'Limpiezas Faciales',
-  'Tratamientos Faciales',
-  'Tratamientos Corporales',
-  'Masajes Relajantes',
-  'Masajes Terapéuticos',
-  'Masajes Reductivos',
-  'Masaje Piernas Cansadas',
+  { name: 'Limpieza Facial Profunda', price: 280 },
+  { name: 'Limpieza con Microdermoabrasión', price: 300 },
+  { name: 'Tratamientos Antiedad', price: 300 },
+  { name: 'Masaje Relajante Medio Cuerpo (50min)', price: 250 },
+  { name: 'Masaje Relajante Cuerpo Completo (1h 20min)', price: 330 },
+  { name: 'Masaje Descontracturante (40min/zona)', price: 200 },
+  { name: 'Masaje Piernas Cansadas', price: 200 },
 ];
 
 const timeSlots = [
@@ -188,17 +188,18 @@ export default function ChatWidget() {
                 <div className="bg-[#F5F0FA] rounded-2xl rounded-tl-none p-4 mb-4">
                   <p className="text-[#3D3D3D]">
                     ¿Qué servicio te gustaría? 
-                    <span className="block text-sm text-[#9B7BB8] mt-1">Todos: $100 USD por sesión</span>
+                    <span className="block text-sm text-[#9B7BB8] mt-1">Precios desde $200 MXN</span>
                   </p>
                 </div>
                 <div className="grid gap-2 max-h-[200px] overflow-y-auto">
                   {services.map((service) => (
                     <button
-                      key={service}
-                      onClick={() => handleServiceSelect(service)}
-                      className="bg-white border-2 border-[#E8DFF0] text-[#3D3D3D] py-2 px-4 rounded-xl hover:border-[#9B7BB8] hover:bg-[#F5F0FA] transition-all text-left text-sm"
+                      key={service.name}
+                      onClick={() => handleServiceSelect(service.name)}
+                      className="bg-white border-2 border-[#E8DFF0] text-[#3D3D3D] py-2 px-4 rounded-xl hover:border-[#9B7BB8] hover:bg-[#F5F0FA] transition-all text-left text-sm flex justify-between items-center"
                     >
-                      {service}
+                      <span>{service.name}</span>
+                      <span className="text-[#9B7BB8] font-semibold">${service.price}</span>
                     </button>
                   ))}
                 </div>
@@ -318,7 +319,7 @@ export default function ChatWidget() {
                     <p>🕐 <strong>Hora:</strong> {appointment.time}</p>
                     <p>👤 <strong>Nombre:</strong> {appointment.name}</p>
                     <p>📱 <strong>WhatsApp:</strong> {appointment.phone}</p>
-                    <p>💵 <strong>Precio:</strong> $100 USD</p>
+                    <p>💵 <strong>Precio:</strong> ${services.find(s => s.name === appointment.service)?.price || 0} MXN</p>
                   </div>
                 </div>
                 <div className="space-y-2">

@@ -63,7 +63,7 @@ Tu cita en *Mater Dei Spa* ha sido *CONFIRMADA* ✅
 📋 *Servicio:* ${appointment.service}
 📅 *Fecha:* ${dateFormatted}
 🕐 *Hora:* ${appointment.time}
-💵 *Precio:* $100 USD
+💵 *Precio:* Ver precios en web (MXN)
 
 ¡Te esperamos! 💜`;
 

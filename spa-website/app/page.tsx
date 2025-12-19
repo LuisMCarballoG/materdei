@@ -12,13 +12,13 @@ interface Service {
 }
 
 const services: Service[] = [
-  { id: 1, name: 'Limpiezas Faciales', description: 'Limpieza profunda para una piel radiante y renovada', icon: '✨', price: 100 },
-  { id: 2, name: 'Tratamientos Faciales', description: 'Rejuvenecimiento y cuidado especializado para tu rostro', icon: '🌸', price: 100 },
-  { id: 3, name: 'Tratamientos Corporales', description: 'Técnicas avanzadas para modelar y tonificar tu cuerpo', icon: '💆', price: 100 },
-  { id: 4, name: 'Masajes Relajantes', description: 'Libera el estrés y encuentra paz interior', icon: '🧘', price: 100 },
-  { id: 5, name: 'Masajes Terapéuticos', description: 'Alivio de dolores musculares y tensiones', icon: '💪', price: 100 },
-  { id: 6, name: 'Masajes Reductivos', description: 'Moldea tu figura con técnicas especializadas', icon: '🌿', price: 100 },
-  { id: 7, name: 'Masaje Piernas Cansadas', description: 'Recupera la ligereza y vitalidad de tus piernas', icon: '🦵', price: 100 },
+  { id: 1, name: 'Limpieza Facial Profunda', description: 'Limpieza profunda para una piel radiante y renovada', icon: '✨', price: 280 },
+  { id: 2, name: 'Limpieza con Microdermoabrasión', description: 'Exfoliación avanzada para una piel suave y rejuvenecida', icon: '💎', price: 300 },
+  { id: 3, name: 'Tratamientos Antiedad', description: 'Rejuvenecimiento y cuidado especializado para tu rostro', icon: '🌸', price: 300 },
+  { id: 4, name: 'Masaje Relajante Medio Cuerpo', description: 'Libera el estrés (50 minutos)', icon: '🧘', price: 250 },
+  { id: 5, name: 'Masaje Relajante Cuerpo Completo', description: 'Relajación total (1 hora 20 min)', icon: '💆', price: 330 },
+  { id: 6, name: 'Masaje Descontracturante', description: 'Alivio de tensiones (40 min por zona)', icon: '💪', price: 200 },
+  { id: 7, name: 'Masaje Piernas Cansadas', description: 'Recupera la ligereza y vitalidad de tus piernas', icon: '🦵', price: 200 },
 ];
 
 export default function Home() {
@@ -131,7 +131,7 @@ export default function Home() {
                 <h3 className="text-xl font-bold text-[#3D3D3D] mb-2">{service.name}</h3>
                 <p className="text-[#6B6B6B] mb-4">{service.description}</p>
                 <div className="flex items-center justify-between">
-                  <span className="text-2xl font-bold text-[#9B7BB8]">${service.price} USD</span>
+                  <span className="text-2xl font-bold text-[#9B7BB8]">${service.price} MXN</span>
                   <span className="text-sm text-[#6B6B6B]">por sesión</span>
                 </div>
               </div>
@@ -239,7 +239,7 @@ export default function Home() {
             <div className="glass p-6 rounded-2xl">
               <div className="text-3xl mb-3">💵</div>
               <h4 className="font-semibold text-[#3D3D3D]">Precio Único</h4>
-              <p className="text-sm text-[#6B6B6B]">$100 USD por sesión</p>
+              <p className="text-sm text-[#6B6B6B]">Desde $200 MXN</p>
             </div>
           </div>
         </div>

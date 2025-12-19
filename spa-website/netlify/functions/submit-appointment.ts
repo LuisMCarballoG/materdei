@@ -101,7 +101,7 @@ async function handler(req: Request, context: Context) {
 🕐 *Hora:* ${time}
 👤 *Cliente:* ${name}
 📱 *Teléfono:* ${phone}
-💵 *Precio:* $100 USD
+💵 *Precio:* Ver precios en web (MXN)
 
 ✅ *Confirmar:*
 ${confirmUrl}
