@@ -160,12 +160,12 @@ export default function Home() {
               
               <div className="grid grid-cols-2 gap-4">
                 <div className="glass p-4 rounded-xl">
-                  <div className="text-3xl font-bold text-[#9B7BB8]">1+</div>
-                  <div className="text-sm text-[#6B6B6B]">Año de experiencia</div>
-                </div>
-                <div className="glass p-4 rounded-xl">
                   <div className="text-3xl font-bold text-[#9B7BB8]">100+</div>
                   <div className="text-sm text-[#6B6B6B]">Clientes satisfechos</div>
+                </div>
+                <div className="glass p-4 rounded-xl">
+                  <div className="text-3xl font-bold text-[#9B7BB8]">1000+</div>
+                  <div className="text-sm text-[#6B6B6B]">Experiencias de bienestar</div>
                 </div>
               </div>
             </div>
