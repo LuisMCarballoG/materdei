@@ -2,7 +2,9 @@
 node_modules/
 .pnpm-store/
 
-# Next.js
+# Agent Engine (separate repo)
+agent-engine/
+.agent
 .next/
 out/
 build/
