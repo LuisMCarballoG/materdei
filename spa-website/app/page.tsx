@@ -113,7 +113,7 @@ export default function Home() {
               NUESTROS SERVICIOS
             </span>
             <h2 className="text-4xl md:text-5xl font-bold gradient-text mb-4">
-              Tratamientos Premium
+              Nuestros Tratamientos
             </h2>
             <p className="text-[#6B6B6B] text-lg max-w-2xl mx-auto">
               Cada servicio está diseñado para brindarte una experiencia única de relajación y bienestar
