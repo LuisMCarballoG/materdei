@@ -1,4 +1,5 @@
 import type { Context } from "@netlify/functions";
+import { getStore } from "@netlify/blobs";
 
 interface Appointment {
   id: string;
@@ -7,16 +8,16 @@ interface Appointment {
   time: string;
   name: string;
   phone: string;
-  status: 'PENDIENTE' | 'CONFIRMADA' | 'NO_DISPONIBLE';
+  status: 'PENDIENTE' | 'CONFIRMADA' | 'RECHAZADA';
   createdAt: string;
 }
 
-// In production, this would use Netlify Blobs or a database
-// For now, we'll use a simple in-memory store (resets on cold start)
-const appointments: Appointment[] = [];
+// Secret token for admin actions (in production, use environment variable)
+const ADMIN_TOKEN = "mater-dei-admin-2024-secreto-muy-largo-para-seguridad";
+const ADMIN_PHONE = "5212881198312";
+const SITE_URL = process.env.URL || "https://mater-dei.netlify.app";
 
-export default async (req: Request, context: Context) => {
-  // CORS headers
+async function handler(req: Request, context: Context) {
   const headers = {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'Content-Type',
@@ -24,7 +25,6 @@ export default async (req: Request, context: Context) => {
     'Content-Type': 'application/json',
   };
 
-  // Handle preflight
   if (req.method === 'OPTIONS') {
     return new Response(null, { status: 204, headers });
   }
@@ -40,7 +40,6 @@ export default async (req: Request, context: Context) => {
     const body = await req.json();
     const { service, date, time, name, phone } = body;
 
-    // Validate required fields
     if (!service || !date || !time || !name || !phone) {
       return new Response(
         JSON.stringify({ error: 'Missing required fields' }),
@@ -48,9 +47,28 @@ export default async (req: Request, context: Context) => {
       );
     }
 
+    // Get appointments store
+    const store = getStore("appointments");
+    
+    // Check for conflicts (same date and time)
+    const existingAppointments = await store.list();
+    for (const item of existingAppointments.blobs) {
+      const existing = await store.get(item.key, { type: "json" }) as Appointment;
+      if (existing && existing.date === date && existing.time === time && existing.status !== 'RECHAZADA') {
+        return new Response(
+          JSON.stringify({ 
+            error: 'Horario no disponible',
+            message: 'Este horario ya está reservado. Por favor selecciona otro.'
+          }),
+          { status: 409, headers }
+        );
+      }
+    }
+
     // Create appointment
+    const appointmentId = `APT-${Date.now()}`;
     const appointment: Appointment = {
-      id: `APT-${Date.now()}`,
+      id: appointmentId,
       service,
       date,
       time,
@@ -60,14 +78,44 @@ export default async (req: Request, context: Context) => {
       createdAt: new Date().toISOString(),
     };
 
-    appointments.push(appointment);
+    // Save to Netlify Blobs
+    await store.setJSON(appointmentId, appointment);
 
-    // In production, you would:
-    // 1. Save to Netlify Blobs: await context.blobs.set(appointment.id, JSON.stringify(appointment))
-    // 2. Send notification email/webhook
-    // 3. Log to analytics
+    // Generate confirm/reject URLs
+    const confirmUrl = `${SITE_URL}/api/confirm-appointment?token=${ADMIN_TOKEN}&id=${appointmentId}`;
+    const rejectUrl = `${SITE_URL}/api/reject-appointment?token=${ADMIN_TOKEN}&id=${appointmentId}`;
+    const calendarUrl = `${SITE_URL}/admin/${ADMIN_TOKEN}`;
+
+    // Build WhatsApp message for admin
+    const dateFormatted = new Date(date).toLocaleDateString('es-MX', { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    });
+    
+    const whatsappMessage = `🔔 *NUEVA CITA EN MATER DEI SPA*
+
+📋 *Servicio:* ${service}
+📅 *Fecha:* ${dateFormatted}
+🕐 *Hora:* ${time}
+👤 *Cliente:* ${name}
+📱 *Teléfono:* ${phone}
+💵 *Precio:* $100 USD
+
+✅ *Confirmar:*
+${confirmUrl}
+
+❌ *Rechazar:*
+${rejectUrl}
+
+📅 *Ver Calendario:*
+${calendarUrl}`;
+
+    const whatsappUrl = `https://wa.me/${ADMIN_PHONE}?text=${encodeURIComponent(whatsappMessage)}`;
 
     console.log('New appointment created:', appointment);
+    console.log('Admin WhatsApp URL:', whatsappUrl);
 
     return new Response(
       JSON.stringify({
@@ -77,6 +125,8 @@ export default async (req: Request, context: Context) => {
           id: appointment.id,
           status: appointment.status,
         },
+        // Return WhatsApp URL so frontend can optionally open it
+        adminNotification: whatsappUrl,
       }),
       { status: 201, headers }
     );
@@ -87,7 +137,9 @@ export default async (req: Request, context: Context) => {
       { status: 500, headers }
     );
   }
-};
+}
+
+export default handler;
 
 export const config = {
   path: "/api/submit-appointment"
