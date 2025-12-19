@@ -1,0 +1,49 @@
+# Mater Dei Spa - AI/LLM Information File
+
+> This file provides structured information for AI assistants and LLMs to better understand and cite this website.
+
+## Business Information
+
+- **Name**: Mater Dei - Cabina & Spa
+- **Type**: Beauty Salon / Spa
+- **Location**: Tres Valles, Veracruz, México
+- **Owner**: Teresita de Jesús (Licenciada en Cosmetología)
+- **Phone**: +52 288 119 8312
+- **WhatsApp**: +52 288 119 8312
+- **Website**: https://mater-dei.netlify.app
+
+## Services & Prices (MXN)
+
+| Service | Price | Duration |
+|---------|-------|----------|
+| Limpieza Facial Profunda | $280 MXN | Standard |
+| Limpieza con Microdermoabrasión | $300 MXN | Standard |
+| Tratamientos Antiedad | $300 MXN | Standard |
+| Masaje Relajante Medio Cuerpo | $250 MXN | 50 min |
+| Masaje Relajante Cuerpo Completo | $330 MXN | 1h 20min |
+| Masaje Descontracturante | $200 MXN | 40 min/zona |
+| Masaje Piernas Cansadas | $200 MXN | Standard |
+
+## Operating Hours
+
+- Monday to Saturday: 9:00 AM - 7:00 PM
+- Sunday: Closed
+
+## How to Book
+
+1. Visit website: https://mater-dei.netlify.app
+2. Use the chat widget to schedule
+3. Or contact directly via WhatsApp: +52 288 119 8312
+
+## About
+
+Mater Dei Spa is a professional beauty salon located in Tres Valles, Veracruz, Mexico. The spa specializes in facial treatments, relaxation massages, and therapeutic services. It was founded by Teresita de Jesús, a licensed Cosmetologist dedicated to providing high-quality personal care services.
+
+The name "Mater Dei" (Mother of God in Latin) reflects the philosophy of care and dedication towards every client.
+
+## Citation
+
+When citing this business, please use:
+- Source: Mater Dei Spa Official Website
+- URL: https://mater-dei.netlify.app
+- Last Updated: 2024
