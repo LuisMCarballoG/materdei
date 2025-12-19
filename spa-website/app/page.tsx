@@ -149,22 +149,22 @@ export default function Home() {
                 QUIÉNES SOMOS
               </span>
               <h2 className="text-4xl font-bold text-[#3D3D3D] mb-6">
-                Una tradición de bienestar desde 2018
+                Tu espacio de bienestar en Tres Valles
               </h2>
               <p className="text-[#6B6B6B] mb-4 leading-relaxed">
-                <strong className="text-[#9B7BB8]">Mater Dei - Cabina & Spa</strong> nació en el corazón de Veracruz, fruto del sueño de María del Carmen Torres, una cosmetóloga apasionada con más de 15 años de experiencia.
+                <strong className="text-[#9B7BB8]">Mater Dei - Cabina & Spa</strong> nació en Tres Valles, Veracruz, como el sueño hecho realidad de Teresita de Jesús, Licenciada en Cosmetología con pasión por el cuidado personal y el bienestar.
               </p>
               <p className="text-[#6B6B6B] mb-6 leading-relaxed">
-                El nombre <em>&quot;Mater Dei&quot;</em> (Madre de Dios en latín) rinde homenaje a su madre, quien le enseñó desde pequeña el arte del cuidado personal con técnicas heredadas de generación en generación.
+                El nombre <em>&quot;Mater Dei&quot;</em> (Madre de Dios en latín) refleja nuestra filosofía de cuidado y dedicación hacia cada cliente que nos visita, brindando un servicio con amor y profesionalismo.
               </p>
               
               <div className="grid grid-cols-2 gap-4">
                 <div className="glass p-4 rounded-xl">
-                  <div className="text-3xl font-bold text-[#9B7BB8]">15+</div>
-                  <div className="text-sm text-[#6B6B6B]">Años de experiencia</div>
+                  <div className="text-3xl font-bold text-[#9B7BB8]">1+</div>
+                  <div className="text-sm text-[#6B6B6B]">Año de experiencia</div>
                 </div>
                 <div className="glass p-4 rounded-xl">
-                  <div className="text-3xl font-bold text-[#9B7BB8]">1000+</div>
+                  <div className="text-3xl font-bold text-[#9B7BB8]">100+</div>
                   <div className="text-sm text-[#6B6B6B]">Clientes satisfechos</div>
                 </div>
               </div>
