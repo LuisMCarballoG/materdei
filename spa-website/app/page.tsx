@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import ChatWidget from '@/components/ChatWidget';
+// import ChatWidget from '@/components/ChatWidget';
 
 interface Service {
   id: number;
@@ -275,7 +275,7 @@ export default function Home() {
       </footer>
 
       {/* Chat Widget for Appointments */}
-      <ChatWidget />
+      {/* <ChatWidget /> */}
     </div>
   );
 }
