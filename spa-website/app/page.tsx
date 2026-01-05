@@ -72,7 +72,10 @@ export default function Home() {
             <a href="#nosotros" className="hover:text-[#9B7BB8] transition-colors">Nosotros</a>
             <a href="#contacto" className="hover:text-[#9B7BB8] transition-colors">Contacto</a>
           </div>
-          <a href="https://wa.me/5212881198312" className="btn-primary text-sm">
+          <a 
+            href="https://wa.me/5212881198312?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20en%20Mater%20Dei%20Spa" 
+            target="_blank"
+            className="btn-primary text-sm">
             Agendar Cita
           </a>
         </nav>
@@ -97,9 +100,6 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a href="#servicios" className="btn-primary text-lg">
               Ver Servicios
-            </a>
-            <a href="https://wa.me/5212881198312" className="btn-secondary text-lg">
-              WhatsApp: 288 119 8312
             </a>
           </div>
         </div>
@@ -217,6 +217,7 @@ export default function Home() {
           
           <a 
             href="https://wa.me/5212881198312?text=Hola%2C%20me%20gustar%C3%ADa%20agendar%20una%20cita%20en%20Mater%20Dei%20Spa" 
+            target="_blank"
             className="whatsapp-btn text-xl inline-flex animate-pulse-glow"
           >
             <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -226,11 +227,15 @@ export default function Home() {
           </a>
 
           <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="glass p-6 rounded-2xl">
-              <div className="text-3xl mb-3">📍</div>
+            <a
+              href="https://www.google.com/maps/place/Emiliano+Zapata+502,+Centro,+95300+Tres+Valles,+Ver./@18.2405992,-96.1379431,21z/data=!4m6!3m5!1s0x85c3ebe40b3f4fed:0x72b283826bc4279d!8m2!3d18.2407198!4d-96.1380538!16s%2Fg%2F11lmp3r60j?entry=ttu&g_ep=EgoyMDI1MTIwOS4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              className="glass p-6 rounded-2xl"
+            >
+              <div className="text-3xl mb-3 animate-bounce">📍</div>
               <h4 className="font-semibold text-[#3D3D3D]">Ubicación</h4>
               <p className="text-sm text-[#6B6B6B]">Veracruz, México</p>
-            </div>
+            </a>
             <div className="glass p-6 rounded-2xl">
               <div className="text-3xl mb-3">🕐</div>
               <h4 className="font-semibold text-[#3D3D3D]">Horario</h4>
@@ -238,7 +243,7 @@ export default function Home() {
             </div>
             <div className="glass p-6 rounded-2xl">
               <div className="text-3xl mb-3">💵</div>
-              <h4 className="font-semibold text-[#3D3D3D]">Precio Único</h4>
+              <h4 className="font-semibold text-[#3D3D3D]">Precio Accesibles</h4>
               <p className="text-sm text-[#6B6B6B]">Desde $200 MXN</p>
             </div>
           </div>
@@ -260,7 +265,10 @@ export default function Home() {
           <p className="text-sm text-gray-400">
             © 2024 Mater Dei Spa. Todos los derechos reservados.
           </p>
-          <a href="https://wa.me/5212881198312" className="text-[#25D366] hover:underline">
+          <a
+            href="https://wa.me/5212881198312"
+            target="_blank"
+            className="text-[#25D366] hover:underline">
             WhatsApp: 288 119 8312
           </a>
         </div>

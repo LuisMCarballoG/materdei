@@ -174,6 +174,7 @@ export default function ChatWidget() {
                   </button>
                   <a
                     href="https://wa.me/5212881198312"
+                    target="_blank"
                     className="bg-[#25D366] text-white py-3 px-4 rounded-full text-center hover:bg-[#128C7E] transition-colors"
                   >
                     📱 Contactar por WhatsApp
@@ -188,7 +189,6 @@ export default function ChatWidget() {
                 <div className="bg-[#F5F0FA] rounded-2xl rounded-tl-none p-4 mb-4">
                   <p className="text-[#3D3D3D]">
                     ¿Qué servicio te gustaría? 
-                    <span className="block text-sm text-[#9B7BB8] mt-1">Precios desde $200 MXN</span>
                   </p>
                 </div>
                 <div className="grid gap-2 max-h-[200px] overflow-y-auto">
